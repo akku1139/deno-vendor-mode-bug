@@ -1,5 +1,11 @@
 on:
   push:
+  workflow_dispatch:
+    inputs:
+      deno_version:
+        type: string
+        required: false
+        default: 2.1.6
 
 jobs:
   lint:
@@ -9,7 +15,7 @@ jobs:
 
       - uses: denoland/setup-deno@v2
         with:
-          deno-version: 2.1.6
+          deno-version: ${{ inputs.deno_version }}
 
       - run: deno task build
 
