@@ -26,3 +26,7 @@ jobs:
       - run: mv deno.json.vendor deno.json
 
       - run: deno task build
+
+      - run: find
+
+      - run: cd ~/.cache/deno && find
